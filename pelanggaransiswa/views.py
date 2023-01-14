@@ -1,12 +1,33 @@
 from django.shortcuts import render
-
+from pelanggaransiswa.forms import FormData
+from pelanggaransiswa.models import *
 
 def data(request):
-    nama = ["Raysa", "Rossa"]
-    kelas = "12 RPL 1"
+    datas = Data.objects.all()
+    
+    konteks = {
+        'datas' : datas,
+    }
+    return render(request,'data.html', konteks)
+
+def tambah_siswa(request):
+    if request.POST:
+        form = FormData(request.POST)
+        if form.is_valid():
+            form.save()
+            form = FormData()
+            pesan = "Data berhasil disimpan"
+            
+            konteks = {
+                'form' : form,
+                'pesan' : pesan,
+            }
+            return render(request, 'tambah-siswa.html', konteks)
+    else:
+        form = FormData()
 
     konteks = {
-        'name': nama,
-        'kelas': kelas,
+        'form': form,
     }
-    return render(request, 'data.html', konteks)
+
+    return render(request, 'tambah-siswa.html', konteks)
