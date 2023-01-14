@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for nama in name %}
+    <li>{{ nama }}</li>
+  {% endfor %}
+
+  {{ kelas }}
+
+{% endblock %}
