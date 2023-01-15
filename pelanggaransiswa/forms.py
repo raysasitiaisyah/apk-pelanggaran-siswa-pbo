@@ -11,6 +11,6 @@ class FormData(ModelForm):
       'tanggal' : forms.DateTimeInput({'class' : 'form-control'}),
       'nama' : forms.TextInput({'class' : 'form-control'}),
       'kelas' : forms.TextInput({'class' : 'form-control'}),
-      'keterangan' : forms.TextInput({'class' : 'form-control'}),
+      'keterangan' : forms.Select({'class' : 'form-control'}),
       'jumlah_poin' : forms.NumberInput({'class' : 'form-control'}),
     }

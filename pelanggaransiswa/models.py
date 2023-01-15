@@ -3,8 +3,8 @@ from django.db import models
 
 class Data(models.Model):
     pilih_ket = {
-      ('k', 'kesiangan'),
-      ('s', 'Salah warna kaos kaki'),
+      ('kesiangan', 'k'),
+      ('ses', 's'),
     }
     tanggal = models.DateTimeField(auto_now=True)
     nama = models.CharField(max_length=50)
