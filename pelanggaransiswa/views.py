@@ -2,17 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from pelanggaransiswa.forms import FormData
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from pelanggaransiswa.models import *
 
-
-def hapus_siswa(request, id_buku):
-    data = Data.objects.filter(id=id_buku)
+@login_required(login_url=settings.LOGIN_URL)
+def hapus_siswa(request, id_data):
+    data = Data.objects.filter(id=id_data)
     data.delete()
     
     messages.success(request, "Data berhasil dihapus!")
-    return redirect('buku')
+    return redirect('data')
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def data(request):
     if request.POST:
         kata_kunci = request.POST['cari']
@@ -28,7 +29,7 @@ def data(request):
         }
     return render(request,'data.html', konteks)
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def tambah_siswa(request):
     if request.POST:
         form = FormData(request.POST)
@@ -50,3 +51,4 @@ def tambah_siswa(request):
     }
 
     return render(request, 'tambah.html', konteks)
+
