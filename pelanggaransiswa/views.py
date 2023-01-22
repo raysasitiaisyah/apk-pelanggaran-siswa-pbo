@@ -42,7 +42,7 @@ def tambah_siswa(request):
                 'form': form,
                 'pesan': pesan,
             }
-            return render(request,'tambah.html', konteks)
+            return redirect('/data')
     else:
         form = FormData()
 
@@ -52,3 +52,14 @@ def tambah_siswa(request):
 
     return render(request, 'tambah.html', konteks)
 
+def rincian_pelanggar(req, iddata):
+    data = Data.objects.get(id=iddata)
+
+    total = Rincian.objects.filter(id_data__id=iddata).count()
+
+    template = 'rincian.html'
+    konteks = {
+        'total': total,
+        'datas': data,
+    }
+    return render(req, template, konteks)

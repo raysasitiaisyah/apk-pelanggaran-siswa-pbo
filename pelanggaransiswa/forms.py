@@ -9,7 +9,7 @@ class FormData(ModelForm):
 
     widgets = {
       'tanggal' : forms.DateTimeInput({'class' : 'form-control'}),
-      'nama' : forms.TextInput({'class' : 'form-control'}),
-      'kelas' : forms.TextInput({'class' : 'form-control'}),
+      'nama' : forms.Select({'class' : 'form-control'}),
       'keterangan' : forms.Select({'class' : 'form-control'}),
     }
+

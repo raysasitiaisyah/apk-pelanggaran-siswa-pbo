@@ -54,9 +54,9 @@
           {% for data in datas %}
           <tr>
             <td>{{ data.tanggal }}</td>
-            <td>{{ data.nama }}</td>
+            <td><a href="/data/{{ data.id }}">{{ data.nama }}</a></td>
             <td>{{ data.kelas }}</td>
-            <td>{{ data.keterangan }}</td>
+            <td>{{ data.keterangan_id }}</td>
             <td>
                 <button data-toggle="modal" data-target="#hapus-{{ data.id }}" class="btn btn-danger">Hapus</button>
             </td>              

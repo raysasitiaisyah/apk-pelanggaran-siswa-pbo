@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<center>
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              LOGIN.
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          LOGIN.
-        </div>
-        <div class="card-body">
-          <form method="post">
-            {% csrf_token %}
+                {{ form.as_p }}
 
-            {{ form.as_p }}
-
-            <button class="btn btn-primary">Masuk</button>
-          </form>
+                <button class="btn btn-primary">Masuk</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
+</center>
 {% endblock %}
