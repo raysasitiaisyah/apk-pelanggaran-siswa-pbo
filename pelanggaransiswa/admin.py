@@ -1,15 +1,11 @@
 from django.contrib import admin
 from pelanggaransiswa.models import *
 
-class DataAdmin(admin.ModelAdmin):
-  list_display = ['tanggal', 'siswa_id', 'keterangan_id']
-
 class PelanggarAdmin(admin.ModelAdmin):
-  list_display = ['id_data']
+  list_display = ['tanggal', 'siswa', 'pelanggaran']
 
 
-admin.site.register(Data, DataAdmin)
+admin.site.register(Pelanggar, PelanggarAdmin)
 admin.site.register(Kelas)
 admin.site.register(Siswa)
-admin.site.register(Keterangan)
-admin.site.register(Rincian, PelanggarAdmin)
+admin.site.register(Pelanggaran)
