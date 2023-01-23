@@ -131,6 +131,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = 'data'
+LOGIN_REDIRECT_URL = 'pelanggar'
 
-LOGIN_URL = 'masuk'
+LOGIN_URL = '/'
