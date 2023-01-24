@@ -1,9 +1,38 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
-<h4>Rincian Pelanggaran: {{ nama }}</h4>
+<h4>Rincian Pelanggaran: {{ pelanggar }}</h4>
 
-<p>total pelanggaran {{ total }}</p>
+<p>total melanggar: {{ total }} </p>
+
+<table class="table">
+  <tr>
+    <td>Kesiangan</td>
+    <td>:</td>
+    <td>{{ kesiangan }}</td>
+  </tr>
+  <tr>
+    <td>Sepatu putih</td>
+    <td>:</td>
+    <td>{{ sepatu_putih }}</td>
+  </tr>
+  <tr>
+    <td>Memakai sendal</td>
+    <td>:</td>
+    <td>{{ memakai_sendal }}</td>
+  </tr>
+  <tr>
+    <td>Memakai gelang</td>
+    <td>:</td>
+    <td>{{ memakai_gelang }}</td>
+  </tr>
+  <tr>
+    <td>Memakai topi bebas</td>
+    <td>:</td>
+    <td>{{ memakai_topi_bebas }}%</td>
+  </tr>
+</table>
 
 {% endblock %}
