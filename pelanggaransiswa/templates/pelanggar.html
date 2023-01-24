@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/data">Data Pelanggar</a>
+          <a class="nav-link active" aria-current="page" href="/pelanggar">Data Pelanggar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/keluar">Keluar</a>
@@ -28,62 +28,68 @@
 </center>
 <br>
 
-<div class="card-body table-responsive p-0">
-<div class="container">
-  <div class="row-md-20">
-    <div class="col-md-20">
-      <a href="{% url 'tambah_siswa' %}" class="btn btn-primary mb-3">Tambah siswa</a><br>
-      <div class="mt-3 mb-3">
-        <form action="" method="post">
-          {% csrf_token %}
-          <input type="search" name="cari" placeholder="Cari" class="form-control">
-        </form>
-      </div>
-      <!-- On tables -->
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>TANGGAL</th>
-            <th>NAMA</th>
-            <th>KELAS</th>
-            <th>PELANGGARAN</th>
-            <th>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for pelanggar in pelanggars %}
-          <tr class="table table-secondary table-columns">
-            <td>{{ pelanggar.tanggal }}</td>
-            <td><a href="/data/{{ pelanggar.id }}">{{ pelanggar.siswa }}</a></td>
-            <td>{{ pelanggar.siswa.kelas_id }}</td>
-            <td>{{ pelanggar.pelanggaran }}</td>
-            <td>
-                <button data-toggle="modal" data-target="#hapus-{{ pelanggar.id }}" class="btn btn-danger">Hapus</button>
-            </td>              
-            <div class="modal" id="hapus-{{ pelanggar.id }}">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="modal-title">
-                      <h3>Hapus</h3>
+  <div class="container">
+    <div class="row-md-20">
+      <div class="col-md-20">
+        <a href="{% url 'tambah_siswa' %}" class="btn btn-primary mb-3">Tambah siswa</a><br>
+        <div class="mt-3 mb-3">
+          <form action="" method="post">
+            {% csrf_token %}
+            <input type="search" name="cari" placeholder="Cari" class="form-control">
+          </form>
+        </div>
+
+        {% for message in messages %}
+          {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+          {% endif %}
+        {% endfor %}
+        
+        <div class="card-body table-responsive p-0">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>TANGGAL</th>
+              <th>NAMA</th>
+              <th>KELAS</th>
+              <th>PELANGGARAN</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pelanggar in pelanggars %}
+            <tr class="table table-secondary table-columns">
+              <td>{{ pelanggar.tanggal }}</td>
+              <td><a href="/pelanggar/{{ pelanggar.pelanggar }}">{{ pelanggar.siswa }}</a></td>
+              <td>{{ pelanggar.siswa.kelas_id }}</td>
+              <td>{{ pelanggar.pelanggaran }}</td>
+              <td>
+                  <button data-toggle="modal" data-target="#hapus-{{ pelanggar.id }}" class="btn btn-danger">Hapus</button>
+              </td>              
+              <div class="modal" id="hapus-{{ pelanggar.id }}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="modal-title">
+                        <h3>Hapus</h3>
+                      </div>
                     </div>
-                  </div>
-                  <div class="modal-body">
-                    Apakah anda yakin ingin menghapus <strong>{{ pelanggar.siswa.nama | upper }}</strong>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="{% url 'hapus_siswa' pelanggar.id%}" class="btn btn-danger">Hapus</a>
-                    <button class="btn btn-dark" data-dismiss="modal">Tidak</button>
+                    <div class="modal-body">
+                      Apakah anda yakin ingin menghapus <strong>{{ pelanggar.siswa.nama | upper }}</strong>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="{% url 'hapus_siswa' pelanggar.id%}" class="btn btn-danger">Hapus</a>
+                      <button class="btn btn-dark" data-dismiss="modal">Tidak</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-         </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>
 {% endblock %}

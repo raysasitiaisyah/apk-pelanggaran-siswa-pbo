@@ -31,3 +31,6 @@ class Pelanggar(models.Model):
     return self.siswa.nama
       
 
+class Rincian(models.Model):
+  
+  id_pelanggar = models.ForeignKey(Pelanggar, on_delete=models.CASCADE)

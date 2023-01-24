@@ -51,3 +51,28 @@ def tambah_siswa(request):
     }
 
     return render(request, 'tambah.html', konteks)
+
+
+def rincian_pelanggar(req, idpelanggar):
+    pelanggar = Pelanggar.objects.get(id=idpelanggar)
+
+    total = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+    kesiangan = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+    sepatu_putih = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+    memakai_sendal = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+    memakai_gelang = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+    memakai_topi_bebas = Pelanggar.objects.filter(id_pelanggar__id=idpelanggar).count()
+
+
+    template = 'rincian.html'
+    konteks = {
+        'pelanggars': pelanggar,
+        'total': total,
+        'kesiangan': kesiangan,
+        'sepatu_putih': sepatu_putih,
+        'memakai_sendal': memakai_sendal,
+        'memakai_gelang': memakai_gelang,
+        'memakai_topi_bebas': memakai_topi_bebas,
+
+    }
+    return render(req, template, konteks)
