@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h4>Rincian Pelanggaran: {{ pelanggar }}</h4>
+<h4>Rincian Pelanggaran: {{ pelanggaran }}</h4>
 
 <p>total melanggar: {{ total }} </p>
 
@@ -31,7 +31,14 @@
   <tr>
     <td>Memakai topi bebas</td>
     <td>:</td>
-    <td>{{ memakai_topi_bebas }}%</td>
+    <td>{{ memakai_topi_bebas }}</td>
+  </tr>
+  <tr>
+    <td>
+      <button>
+      <a href="/pelanggar/" class="btn btn-dark me-10"">Kembali</a>
+      </button>
+    </td>
   </tr>
 </table>
 
