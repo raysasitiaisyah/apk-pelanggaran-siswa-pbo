@@ -3,11 +3,14 @@
 
 {% block content %}
 
-<h4>Rincian Pelanggaran: {{ pelanggaran }}</h4>
 
-<p>total melanggar: {{ total }} </p>
-
-<table class="table">
+<table class="table mt-4 table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Rincian pelanggaran: {{ pelanggar }}</th>
+      <th>total melanggar: {{ total }}</th>
+    </tr>
+  </thead>
   <tr>
     <td>Kesiangan</td>
     <td>:</td>
