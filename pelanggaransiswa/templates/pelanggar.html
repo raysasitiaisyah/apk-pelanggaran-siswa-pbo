@@ -60,7 +60,7 @@
             {% for pelanggar in pelanggars %}
             <tr class="table table-secondary table-columns">
               <td>{{ pelanggar.tanggal }}</td>
-              <td><a href="/pelanggar/{{ pelanggar.pelanggar }}">{{ pelanggar.siswa }}</a></td>
+              <td><a href="/pelanggar/{{ pelanggar.id }}">{{ pelanggar.siswa }}</a></td>
               <td>{{ pelanggar.siswa.kelas_id }}</td>
               <td>{{ pelanggar.pelanggaran }}</td>
               <td>
