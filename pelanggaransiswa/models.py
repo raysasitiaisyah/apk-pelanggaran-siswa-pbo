@@ -33,4 +33,4 @@ class Pelanggar(models.Model):
 
 class Rincian(models.Model):
   
-  pelanggaran = models.ForeignKey(Pelanggar, on_delete=models.CASCADE)
+  pelanggaran = models.ForeignKey(Pelanggaran, on_delete=models.CASCADE)
