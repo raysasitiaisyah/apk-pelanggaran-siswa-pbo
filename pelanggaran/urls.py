@@ -10,5 +10,5 @@ urlpatterns = [
     path('pelanggar/hapus/<int:id_pelanggar>', hapus_siswa, name='hapus_siswa'),
     path('', LoginView.as_view(), name='masuk'),
     path('keluar/', LogoutView.as_view(next_page='masuk'), name='keluar'),
-    path('pelanggar/<int:pelanggar_id>/', rincian_pelanggar),
+    path('pelanggar/<int:pelanggaran_id>/', rincian_pelanggar),
 ]
